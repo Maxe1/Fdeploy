@@ -4,7 +4,7 @@ api_version: 1
 
 # Google App Engine's cache default expiration time is 10 minutes. It's suitable for most Production
 # scenarios, but a shorter TTL may be desired for Development and QA, as it allows us to see a fresh
-# code in action just a minute after the deployment.
+# code in action just a minute after the Shopment.
 default_expiration: 60s
 
 handlers:
@@ -13,46 +13,46 @@ handlers:
 
 # Assets are retrieved directly from their parent folder.
 - url: /assets
-  static_dir: dist/deploy/assets
+  static_dir: dist/Shop/assets
   secure: always
 
 # Static files located in the root folder are retrieved directly from there, but their suffixes need to be
 # mapped individually in order to avoid them from being hit by the most general (catch-all) rule.
 - url: /(.*\.css)
-  static_files: dist/deploy/\1
-  upload: dist/deploy/(.*\.css)
+  static_files: dist/Shop/\1
+  upload: dist/Shop/(.*\.css)
   secure: always
 
 - url: /(.*\.html)
-  static_files: dist/deploy/\1
-  upload: dist/deploy/(.*\.html)
+  static_files: dist/Shop/\1
+  upload: dist/Shop/(.*\.html)
   secure: always
 
 - url: /(.*\.ico)
-  static_files: dist/deploy/\1
-  upload: dist/deploy/(.*\.ico)
+  static_files: dist/Shop/\1
+  upload: dist/Shop/(.*\.ico)
   secure: always
 
 - url: /(.*\.js)
-  static_files: dist/deploy/\1
-  upload: dist/deploy/(.*\.js)
+  static_files: dist/Shop/\1
+  upload: dist/Shop/(.*\.js)
   secure: always
 
 - url: /(.*\.txt)
-  static_files: dist/deploy/\1
-  upload: dist/deploy/(.*\.txt)
+  static_files: dist/Shop/\1
+  upload: dist/Shop/(.*\.txt)
   secure: always
 
 # Site root.
 - url: /
-  static_files: dist/deploy/index.html
-  upload: dist/deploy/index.html
+  static_files: dist/Shop/index.html
+  upload: dist/Shop/index.html
   secure: always
 
 # Catch-all rule, responsible from handling Angular application routes (deeplinks).
 - url: /.*
-  static_files: dist/deploy/index.html
-  upload: dist/deploy/index.html
+  static_files: dist/Shop/index.html
+  upload: dist/Shop/index.html
   secure: always
 
 skip_files:
