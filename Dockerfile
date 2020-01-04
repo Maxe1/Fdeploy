@@ -14,4 +14,4 @@ RUN npm install -g @angular/cli@7.3.9
 
 ADD . /usr/src/app/
 
-ENTRYPOINT ["ng", "serve"]
+ENTRYPOINT ["ng", "serve","--host","0.0.0.0"]
