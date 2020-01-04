@@ -26,7 +26,7 @@ substitutions:
   _PROJECT: tough-bearing-259612
   _ZONE: europe-west1-b
   _GKE_CLUSTER: standard-cluster-1
-  _PORT: 4200
+  _PORT: '4200'
 
   _CONTAINERNAME: fdeploy
   _REPO_NAME: Bdeploy
