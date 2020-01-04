@@ -13,3 +13,11 @@ steps:
     # Deploy to google cloud app engine
     - name: "gcr.io/cloud-builders/gcloud"
       args: ['app', 'deploy', '--version=prod']
+
+
+      - name: 'gcr.io/cloud-builders/gke-deploy'
+      args:
+      - 'run'
+      - '--image=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+      - '--location=${_ZONE}'
+      - '--cluster=${_GKE_CLUSTER}'

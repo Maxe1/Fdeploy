@@ -8,20 +8,28 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}']    
 
-  - name: 'gcr.io/cloud-builders/gke-deploy'
+  - name: 'gcr.io/cloud-builders/kubectl'
     args:
-    - 'run'
+    - 'create'
+    - 'deployment={_CONTAINERNAME}'
     - '--image=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
-    - '--location=${_ZONE}'
-    - '--cluster=${_GKE_CLUSTER}'
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+    - 'expose'
+    - 'deployment={_CONTAINERNAME}'
+    - '--type=LoadBalancer'
+    - '--port ${_PORT}' 
+    - '--target-port ${_PORT}'
 
 substitutions:
   _PROJECT: tough-bearing-259612
   _ZONE: europe-west1-b
   _GKE_CLUSTER: standard-cluster-1
+  _PORT: 4200
 
   _CONTAINERNAME: fdeploy
   _REPO_NAME: Bdeploy
   _GIT_USER: Maxe1
 
-  _VERSION: v1.0
+  _VERSION: v1.1
