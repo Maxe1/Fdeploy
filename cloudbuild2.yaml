@@ -21,3 +21,17 @@ steps:
       - '--image=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
       - '--location=${_ZONE}'
       - '--cluster=${_GKE_CLUSTER}'
+
+      - name: 'gcr.io/cloud-builders/kubectl'
+      args:
+      - 'create'
+      - 'deployment=${_CONTAINERNAME}'
+      - '--image=gcr.io/${_PROJECT}/${_CONTAINERNAME}:${_VERSION}'
+  
+    - name: 'gcr.io/cloud-builders/kubectl'
+      args:
+      - 'expose'
+      - 'deployment=${_CONTAINERNAME}'
+      - '--type=LoadBalancer'
+      - '--port ${_PORT}' 
+      - '--target-port ${_PORT}'
