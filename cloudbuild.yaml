@@ -22,7 +22,7 @@ substitutions:
   _PORT: '4200'
 
   _CONTAINERNAME: fdeploy
-  _REPO_NAME: Bdeploy
+  _REPO_NAME: Fdeploy
   _GIT_USER: Maxe1
 
   _VERSION: v1.1
