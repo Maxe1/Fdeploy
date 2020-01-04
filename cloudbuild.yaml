@@ -23,9 +23,9 @@ substitutions:
   _ZONE: europe-west1-b
   _GKE_CLUSTER: standard-cluster-1
 
-  _DEPLOYMENTNAME: nginx-2
+  _DEPLOYMENTNAME: nginx-3
   _CONTAINERNAME: nginx-2
   _REPO_NAME: Bdeploy
   _GIT_USER: Maxe1
 
-  _VERSION: v1.0
+  _VERSION: v1.1
